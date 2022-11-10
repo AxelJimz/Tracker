@@ -1,0 +1,235 @@
+/* Variables */
+
+:root {
+    --color-white: #fff;
+    --color-light: #f2f2f2;
+    --color-black: #252525;
+    --color-gray: #25252590;
+    --color-blue: #01bdfc;
+    --color-black-transparent: #25252595;
+    --color-blue-hover: #01bdfc90;
+    --family-poppins: "sans-serif";
+    --family-raleway: "sans-serif";
+    --font-size-xxl: 3rem;
+    --font-size-xl: 2.5rem;
+    --font-size-lg: 2rem;
+    --font-size-md: 1.5rem;
+    --font-size-sm: 1.25rem;
+    --font-size-xs: 0.875rem;
+}
+
+.body {
+    width: 100%;
+    padding: 2rem 5.5%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light);
+}
+
+.header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.header__heading {
+    font-family: var(--family-poppins);
+    font-size: var(--font-size-xxl);
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.header__description {
+    margin-top: 1rem;
+    font-family: var(--family-raleway);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--color-gray);
+}
+
+.trackers {
+    position: relative;
+    width: 100%;
+    max-width: 992px;
+    padding:  0.75rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.250rem;
+}
+
+.trackers::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background-color: var(--color-black-transparent);
+    z-index: 500;
+}
+
+.tracker {
+    position: relative;
+    /* top: -0.250rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.trackers .tracker:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.tracker__icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+
+.tracker__icon > img {
+    width: 1rem;
+    height: 1rem;
+}
+
+.tracker__btn {
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0.5rem 0;
+    border-radius: 100%;
+    background-color: var(--color-white);
+    border: 0.063rem solid var(--color-blue);
+    z-index: 1000;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+.tracker__btn.active {
+    background-color: var(--color-blue);
+}
+
+.tracker__heading {
+   font-family: var(--family-poppins);
+   font-size: var(--font-size-sm);
+   font-weight: 600;
+   color: var(--color-black)
+}
+
+.modals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 0 5.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-black-transparent);
+    opacity: 0;
+    z-index: -1500;
+    transition: opacity 0.3s ease;
+}
+
+.modals.active {
+    opacity: 1;
+    z-index: 1500;
+}
+
+.modal {
+    width: 100%;
+    max-width: 576px;
+    padding: 0.75rem;
+    display: none;
+    border-radius: 0.250rem;
+    background-color: var(--color-white);
+}
+
+.modal.active {
+    display: inline-block;
+}
+
+.modal__heading {
+    font-family: var(--family-poppins);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.modal__description {
+    margin: 1.25rem 0;
+    font-family: var(--family-raleway);
+    font-size: var(--font-size-xs);
+    font-weight: 400;
+    color: var(--color-gray);
+}
+
+.modal__divider {
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0;
+    background-color: #00000033;
+}
+
+.modal__btn {
+    width: 100%;
+    max-width: 150px;
+    padding: 0.5rem;
+    font-family: var(--family-poppins);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-white);
+    border-radius: 0.250rem;
+    border: none;
+    outline: none;
+    background-color: var(--color-blue);
+    cursor: pointer;
+}
+
+.tracker__btn:active {
+    transform: scale(1.1);
+}
+
+.modal__btn:active {
+ background-color: var(--color-blue-hover);
+}
+
+@media (hover: hover) {
+    .tracker__btn:hover {
+        transform: scale(1.1);
+    }
+
+    .modal__btn:hover {
+        background-color: var(--color-blue-hover);
+       }
+}
+
+@media screen and (min-width: 992px) {
+    .body {
+        height: 100vh;
+    }
+
+    .trackers {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .trackers::after {
+        left: 0;
+        width: 100%;
+        height: 3px;
+    }
+
+    .tracker {
+        top: -0.250rem;
+        margin-bottom: 0;
+    }
+}
